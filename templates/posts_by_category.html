@@ -16,7 +16,7 @@
                 </div>
             </div>
     {% endif %}
-{% endfor %} {% endcomment %}
+{% endfor %}  {% endcomment %}
 
 <h3 class="text-uppercase text-warning" style="letter-spacing: 2px">Category - {{ category }}</h3>
 
@@ -26,7 +26,7 @@
             <div class="col-md-6">
                 <div class="card border-0">
                     <div class="card-body">
-                        <h3>{{ post.title }}</h3>
+                        <h3><a href="{% url 'blogs' post.slug %}" class="text-dark">{{ post.title }}</a></h3>
 
                         {% if post.created_at %}
                         <small class="mb-1 text-muted">
