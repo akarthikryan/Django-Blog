@@ -63,3 +63,9 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('home')
+
+
+for post in Blog.objects.all():
+    if not post.slug:
+        post.save()
+        print(f"Slug fixed: {post.title} → {post.slug}")

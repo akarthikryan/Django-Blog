@@ -26,7 +26,11 @@
             <div class="col-md-6">
                 <div class="card border-0">
                     <div class="card-body">
+                        {% if post.slug %}
                         <h3><a href="{% url 'blogs' post.slug %}" class="text-dark">{{ post.title }}</a></h3>
+                        {% else %}
+                        <h3>{{ post.title }}</h3>
+                        {% endif %}
 
                         {% if post.created_at %}
                         <small class="mb-1 text-muted">
