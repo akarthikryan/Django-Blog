@@ -18,27 +18,27 @@
     {% endif %}
 {% endfor %}  {% endcomment %}
 
-<h3 class="text-uppercase text-warning" style="letter-spacing: 2px">Category - {{ category }}</h3>
+<h3 class="text-warning" style="letter-spacing: 2px">Search Term - {{ keyword }}</h3>
 
 <div class="row mb-2">
-    {% if posts %}
-        {% for post in posts %}
+    {% if blogs %}
+        {% for i in blogs %}
             <div class="col-md-6">
                 <div class="card border-0">
                     <div class="card-body">
-                        {% if post.slug %}
-                        <h3><a href="{% url 'blogs' post.slug %}" class="text-dark">{{ post.title }}</a></h3>
+                        {% if i.slug %}
+                        <h3><a href="{% url 'blogs' i.slug %}" class="text-dark">{{ i.title }}</a></h3>
                         {% else %}
-                        <h3>{{ post.title }}</h3>
+                        <h3>{{ i.title }}</h3>
                         {% endif %}
 
-                        {% if post.created_at %}
+                        {% if i.created_at %}
                         <small class="mb-1 text-muted">
-                            {{ post.created_at|timesince }} ago | {{ post.author }}
+                            {{ i.created_at|timesince }} ago | {{ i.author }}
                         </small>
                         {% endif %}
 
-                        <p class="card-text">{{ post.short_description|truncatewords:10 }}</p>
+                        <p class="card-text">{{ i.short_description|truncatewords:10 }}</p>
                     </div>
                 </div>
             </div>

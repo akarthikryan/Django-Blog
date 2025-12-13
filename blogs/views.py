@@ -6,13 +6,13 @@ from django.http import HttpResponseRedirect
 # -------------------- Category-wise Posts --------------------
 def posts_by_category(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
-    posts = Blog.objects.filter(status='Published', category=category)
+    blogs = Blog.objects.filter(status='Published', category=category)
 
     # Optional: latest featured post
     featured_post = Blog.objects.filter(status='Published').order_by('-created_at').first()
 
     context = {
-        'posts': posts,
+        'blogs': blogs,
         'category': category,
         'featured_post': featured_post,
     }
